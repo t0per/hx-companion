@@ -6,6 +6,7 @@
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SelfContained>false</SelfContained>
+    <Version>0.1.0</Version>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <!-- Folder holding NGENUITY's own assemblies; override with -p:NgenuityDir=... -->
@@ -13,11 +14,12 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- Protocol types and transport are NGENUITY's own assemblies, so messages match the installed services.
-         They are not redistributed with this repository. -->
-    <Reference Include="NGENUITY.Common"><HintPath>$(NgenuityDir)/NGENUITY.Common.dll</HintPath></Reference>
-    <Reference Include="Google.FlatBuffers"><HintPath>$(NgenuityDir)/Google.FlatBuffers.dll</HintPath></Reference>
-    <Reference Include="NetMQ"><HintPath>$(NgenuityDir)/NetMQ.dll</HintPath></Reference>
-    <Reference Include="AsyncIO"><HintPath>$(NgenuityDir)/AsyncIO.dll</HintPath></Reference>
-    <Reference Include="NaCl"><HintPath>$(NgenuityDir)/NaCl.dll</HintPath></Reference>
+         They are not redistributed: Private=false keeps them out of the output, and Program.cs loads them
+         from the user's NGENUITY installation at run time. -->
+    <Reference Include="NGENUITY.Common"><HintPath>$(NgenuityDir)/NGENUITY.Common.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Google.FlatBuffers"><HintPath>$(NgenuityDir)/Google.FlatBuffers.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="NetMQ"><HintPath>$(NgenuityDir)/NetMQ.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="AsyncIO"><HintPath>$(NgenuityDir)/AsyncIO.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="NaCl"><HintPath>$(NgenuityDir)/NaCl.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>
 </Project>

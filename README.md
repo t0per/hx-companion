@@ -18,6 +18,16 @@ HxCompanion ne parle pas directement au casque. Il envoie ses commandes au servi
 
 L'outil ne modifie aucun fichier de NGENUITY.
 
+## Installation
+
+1. Téléchargez `HxCompanion-win-x64.zip` depuis la page
+   [Releases](https://github.com/t0per/hx-companion/releases) et décompressez-le.
+2. Lancez NGENUITY et allumez le casque.
+3. Lancez `HxCompanion.exe`.
+
+L'archive ne contient que HxCompanion. Les bibliothèques de NGENUITY dont il a besoin sont chargées
+depuis votre installation de NGENUITY au démarrage.
+
 ## Prérequis
 
 - Windows 10 ou 11, 64 bits
@@ -28,9 +38,9 @@ L'outil ne modifie aucun fichier de NGENUITY.
 ## Compilation
 
 Les bibliothèques de NGENUITY (`NGENUITY.Common.dll`, `NetMQ.dll`, `Google.FlatBuffers.dll`,
-`AsyncIO.dll`, `NaCl.dll`) sont nécessaires à la compilation et à l'exécution. Elles sont propriétaires
-ou tierces et ne sont **pas** fournies dans ce dépôt : elles sont prises dans votre installation de
-NGENUITY.
+`AsyncIO.dll`, `NaCl.dll`) sont nécessaires à la compilation. Elles sont propriétaires ou tierces et ne
+sont **pas** fournies dans ce dépôt, ni copiées dans le dossier de sortie : elles sont prises dans votre
+installation de NGENUITY.
 
 ```
 dotnet publish -c Release -o publish
