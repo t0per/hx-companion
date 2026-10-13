@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Folder holding NGENUITY's own assemblies; override with -p:NgenuityDir=... -->
+    <NgenuityDir Condition="'$(NgenuityDir)' == ''">$(LOCALAPPDATA)\NGENUITY\current</NgenuityDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Protocol types and transport are NGENUITY's own assemblies, so messages match the installed services.
+         They are not redistributed with this repository. -->
+    <Reference Include="NGENUITY.Common"><HintPath>$(NgenuityDir)/NGENUITY.Common.dll</HintPath></Reference>
+    <Reference Include="Google.FlatBuffers"><HintPath>$(NgenuityDir)/Google.FlatBuffers.dll</HintPath></Reference>
+    <Reference Include="NetMQ"><HintPath>$(NgenuityDir)/NetMQ.dll</HintPath></Reference>
+    <Reference Include="AsyncIO"><HintPath>$(NgenuityDir)/AsyncIO.dll</HintPath></Reference>
+    <Reference Include="NaCl"><HintPath>$(NgenuityDir)/NaCl.dll</HintPath></Reference>
+  </ItemGroup>
+</Project>

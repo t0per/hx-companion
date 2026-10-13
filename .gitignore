@@ -1,0 +1,6 @@
+bin/
+obj/
+publish/
+*.zip
+# NGENUITY assemblies are proprietary and must never be committed.
+*.dll
